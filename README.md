@@ -28,3 +28,27 @@ This is a counter web app built in Ruby using Sinatra and Capybara. This app use
 * What part of the code runs when we click the "Increment" button?
 * Can you add a "Decrement" button which decreases the count by 1 each time it is pressed?
 * Can you update the app to display the time that the count was last updated? This value should be stored in the database so that it will be accurately displayed even if the server is restarted.
+
+State of counter is stored independent of whether the user refreshes the page or the sever is closed.
+Stored locally on machine in DB.
+
+The Model / server / backend interacts with the database.
+counter.rb and database_connection.rb both connect with the SQL database.
+database_connection.rb - sets up the connection with PG and has a method which exec's SQL querys
+counter.rb extracts the state of counter and updates it using SQL commands.
+
+count_manager=# SELECT * FROM counter
+count_manager-# ;
+ id | count 
+----+-------
+  1 |    40
+
+def count
+  result = DatabaseConnection.query("SELECT * FROM counter WHERE id=1;")
+  p result
+  p result[0]
+  result[0]['count'].to_i
+end
+
+#<PG::Result:0x00007f8b9d1159d8 status=PGRES_TUPLES_OK ntuples=1 nfields=2 cmd_tuples=1>
+{"id"=>"1", "count"=>"42"}

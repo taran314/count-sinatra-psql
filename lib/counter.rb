@@ -3,6 +3,8 @@ require_relative './database_connection'
 class Counter
   def count
     result = DatabaseConnection.query("SELECT * FROM counter WHERE id=1;")
+    p result
+    p result[0]
     result[0]['count'].to_i
   end
 
