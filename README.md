@@ -47,13 +47,13 @@ count_manager-# ;
  id | count 
 ----+-------
   1 |    40
-
-- def count
--  result = DatabaseConnection.query("SELECT * FROM counter WHERE id=1;")
--  p result
--  p result[0]
--  result[0]['count'].to_i
-- end
-
-- #<PG::Result:0x00007f8b9d1159d8 status=PGRES_TUPLES_OK ntuples=1 nfields=2 cmd_tuples=1>
-- {"id"=>"1", "count"=>"42"}
+```
+def count
+  result = DatabaseConnection.query("SELECT * FROM counter WHERE id=1;")
+  p result
+  p result[0]
+  result[0]['count'].to_i
+end
+```
+#<PG::Result:0x00007f8b9d1159d8 status=PGRES_TUPLES_OK ntuples=1 nfields=2 cmd_tuples=1>
+{"id"=>"1", "count"=>"42"}
