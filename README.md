@@ -41,19 +41,20 @@ counter.rb extracts the state of counter and updates it using SQL commands.
 - [x] Can you update the app to display the time that the count was last updated? This value should be stored in the database so that it will be accurately displayed even if the server is restarted.
 
 # Notes on how it works 
-
+```
 count_manager=# SELECT * FROM counter
 count_manager-# ;
  id | count 
 ----+-------
   1 |    40
-```
+
 def count
   result = DatabaseConnection.query("SELECT * FROM counter WHERE id=1;")
   p result
   p result[0]
   result[0]['count'].to_i
 end
-```
+
 #<PG::Result:0x00007f8b9d1159d8 status=PGRES_TUPLES_OK ntuples=1 nfields=2 cmd_tuples=1>
 {"id"=>"1", "count"=>"42"}
+```
