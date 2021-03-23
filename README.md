@@ -37,6 +37,11 @@ counter.rb and database_connection.rb both connect with the SQL database.
 database_connection.rb - sets up the connection with PG and has a method which exec's SQL querys
 counter.rb extracts the state of counter and updates it using SQL commands.
 
+-[x] Can you add a "Decrement" button which decreases the count by 1 each time it is pressed?
+-[x] Can you update the app to display the time that the count was last updated? This value should be stored in the database so that it will be accurately displayed even if the server is restarted.
+
+## Notes on how it works 
+
 count_manager=# SELECT * FROM counter
 count_manager-# ;
  id | count 
